@@ -22,10 +22,10 @@ anno Walkthrough """
 
 In Theorem 168, the next-to-last result in the *Zahlbericht*, Hilbert gives
 a modified version of Kummer's proof of Fermat's Last Theorem for regular primes.
-We have <notes:w6>[discussed Kummer's original proof]{
+We have <link:w6>[discussed Kummer's original proof]{
     "libpath":"ahop.K.ummer.Cr040_08.Commentary"
 } elsewhere, and have also
-<notes:w7>[compared Kummer's and Hilbert's versions]{
+<link:w7>[compared Kummer's and Hilbert's versions]{
     "libpath":"ahop.K.ummer.Cr040_08.H_vs_K_on_FLT"
 }. Here we give a walkthrough and commentary on Hilbert's version of the proof.
 
@@ -112,7 +112,7 @@ But we can gain a deeper understanding by proving
     "view": "SuppLem_ZB168_1",
     "group": "extras"
 }.
-We discuss it <notes:w4>[here]{
+We discuss it <link:w4>[here]{
     "libpath":"supp_notes.Lem1"
 }.
 
@@ -152,12 +152,18 @@ $5$, none is zero mod $25$.
 The major chunks of this long argument are as follows:
 
 <chart:w19>[Chunk 1:]{
-    "view":"Thm168.Pf1C.{D20,ZBPg369_2,A10}",
+    "view":{
+        "objects": "Thm168.Pf1C.{D20,ZBPg369_2,A10}",
+        "incl_nbhd": false
+    },
     "hovercolor":{":bgY":"Thm168.Pf1C.{D20,ZBPg369_2,A10}"}
 } Assume _wolog_ that the numbers $@alp, bet, gam$ are semiprimary.
 
 <chart:w21>[Chunk 2:]{
-    "view":"Thm168.Pf1C.{A30,I60,D50,D40,E70}",
+    "view":{
+        "objects": "Thm168.Pf1C.{A30,I60,D50,D40,E70}",
+        "incl_nbhd": false
+    },
     "hovercolor":{":bgY":"Thm168.Pf1C.{A30,I60,D50,D40,E70}"}
 } Bring $@gam$ to the RHS of the Fermat equation, and
 factorize the LHS into factors of the form $@alp + zeta^u beta$. Then examine the possible
@@ -372,3 +378,69 @@ deduc X2 of Thm168.Pf1C.A340 {
     Thm168.Pf1C.A340 by Thm168.Pf1C.D330.A70 and A10.
     "
 }
+
+######################################################################
+# Illustration
+
+anno Illustration """
+
+# Illustration of *Zahlbericht* Theorem 168
+
+#### Notes by Steve Kieffer
+
+The proof of Theorem 168 is by contradiction, and as such it is not possible
+to instantiate _all_ the numbers involved simultaneously. However, for most of
+the proof we are looking only at $@alp$ and $@beta$, and numbers derived from
+these, and it is helpful indeed to instantiate some of these constructions.
+
+Let us take $@ell = 7$ and begin by choosing integers $@alp, beta in bbQ(zeta)$
+so as to satisfy the condition of Case 1, i.e. that neither of these numbers is
+divisible by $@frl$. For this it will suffice to choose numbers whose norm is
+not divisible by $7$.
+
+<cell:w1>[sage]{
+"code":"
+ell = 7
+k = CyclotomicField(ell)
+zeta = k.gen()
+alpha = 1 + 2*zeta
+beta  = 1 + zeta + zeta^3
+Na = alpha.norm()
+Nb = beta.norm()
+disp = '$\\alpha = %s$' % latex(alpha)
+disp += '\n$\\beta = %s$' % latex(beta)
+disp += '\n$N(\\alpha) = %s$' % Na
+disp += '\n$N(\\beta) = %s$' % Nb
+print(disp)
+"
+}
+
+<cell:w2>[sage]{
+"code":"
+print(beta.norm())
+"
+}
+
+
+"""
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

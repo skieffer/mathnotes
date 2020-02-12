@@ -27,7 +27,7 @@ found, dismissing the question with "as is easily shown" (_wie leicht zu zeigen_
 Hilbert later would mostly "carry on the tradition" of dismissing this fact
 as being too easy to deserve much demonstration; Hilbert showed a few steps,
 but still left many steps to the reader. See our discussion of Hilbert's
-rendition <notes:w4>[here]{
+rendition <link:w4>[here]{
     "libpath":"ZB_notes.Pg369_2.Notes"
 }.
 
@@ -61,7 +61,7 @@ anno H_vs_K_on_FLT """
 Kummer's proof of Fermat's Last Theorem for regular primes was published in 1850,
 appearing in the 40th volume of Crelle's Journal.
 The paper was the third in a series of three papers published by Kummer in that volume.
-In the introduction to <notes:w4>[the first of these papers]{
+In the introduction to <link:w4>[the first of these papers]{
     "libpath":"Cr040_06.EngTrans"
 }, Kummer indicated that he had already communicated the basic ideas of the proof
 in a letter to Dirichlet, written some time before April 1847.
