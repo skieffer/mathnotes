@@ -7,6 +7,68 @@
 #   https://github.com/skieffer/ahop
 ###############################################################################
 
+from gh.rrmath.lit.H.ilbert.ZB.Thm17 import Pf as ZB17Pf
+
+anno Eg2 on ZB17Pf """
+# Illustration for ZB17
+
+The theorem establishes that when we reduce the elements of
+an integral basis for our field $k$ mod a prime ideal $\mathfrak{p}$,
+there must be some maximal number $f \leq n$ of reduced elements that can
+form a linearly independent set mod $p$.
+
+But the proof is non-constructive, and we are left with no idea of
+_how_ this happens. In order to gain a more tangible understanding,
+it helps to examine what the reduced basis elements actually look like
+in a few cases.
+
+## Step 1: Choose number field $k$ and rational prime $p$
+<cell:w1>[sage]{
+code:"
+# Choose a number field k:
+# Could be cyclotomic or generic. Take your choice.
+k = CyclotomicField(7)
+#k.<alpha> = NumberField(x^4 - 420*x^2 + 40000)
+# Choose a rational prime p:
+p = 11
+# ----------------------------------------------------
+B = k.maximal_order().basis()
+P = k.primes_above(p)
+# ----------------------------------------------------
+print('$k = '+latex(k)+'$')
+print('$p = '+latex(p)+'$')
+print('Integral basis for $k$:')
+print(f'${latex(B)}$')
+print('Ideal primes of $k$ lying above $p$:')
+for i, frp in enumerate(P):
+    print(f'${i}$: ${latex(frp.gens_two())}$')
+"
+}
+
+Note that we have opted to display the primes lying above $p$ in
+two-generator form, even if they may be principal.
+This is done in hopes of delivering greater insight into how the
+basis elements are going to reduce modulo this ideal.
+
+
+## Step 2: Choose an ideal prime $@frp$ of $k$ lying above $p$
+<cell:w2>[sage]{
+code:"
+# Choose an ideal prime frp, by index in the above listing:
+i = 0
+# ----------------------------------------------------
+frp = P[i]
+# ----------------------------------------------------
+print(rf'$\mathfrak{{p}} = {latex(frp.gens_two())}$')
+print(r'Reducing the elements of the integral basis mod $\mathfrak{p}$:')
+for e in B:
+    r = frp.small_residue(e)
+    print(rf'${latex(e)} \mapsto {latex(r)}$')
+"
+}
+
+"""
+
 examp Eg1 """"
 
 class Examp(Examplorer):
